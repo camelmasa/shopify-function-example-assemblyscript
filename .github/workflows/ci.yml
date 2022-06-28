@@ -22,4 +22,8 @@ jobs:
           wget https://github.com/Shopify/function-runner/releases/download/v3.0.0/function-runner-x86_64-linux-v3.0.0.gz
           gunzip function-runner-x86_64-linux-v3.0.0.gz
           chmod 700 function-runner-x86_64-linux-v3.0.0
+          test $(echo 0) -ge 1 && echo 10
+          test $(echo 1) -ge 1 && echo 11
+          test $(echo 2) -ge 1 && echo 12
+          test $(./function-runner-x86_64-linux-v3.0.0 -f ./build/release.wasm ./input.json -j | jq '.size') -le 256000 && echo 13
           ./function-runner-x86_64-linux-v3.0.0 -f ./build/release.wasm ./input.json
