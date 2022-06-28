@@ -23,4 +23,4 @@ jobs:
           gunzip function-runner-x86_64-linux-v3.0.0.gz
           chmod 700 function-runner-x86_64-linux-v3.0.0
           ./function-runner-x86_64-linux-v3.0.0 -f ./build/release.wasm ./input.json
-          test $(./function-runner-x86_64-linux-v3.0.0 -f ./build/release.wasm ./input.json -j | jq '.size') -ge 256000 && exit 1
+          test $(./function-runner-x86_64-linux-v3.0.0 -f ./build/release.wasm ./input.json -j | jq '.size') -ge 256000 && exit 0
